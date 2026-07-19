@@ -1,0 +1,62 @@
+{
+  "source": "https://react-test-shop-five.vercel.app/home",
+  "generated_at": "2026-07-19T07:20:16.377049+00:00",
+  "total": 3,
+  "submitted": 3,
+  "enquiries": [
+    {
+      "product": {
+        "title": "MacBook Air M4",
+        "brand": "Apple",
+        "category": "ELECTRONICS",
+        "price": "₹109,999",
+        "rating": "⭐ 4.8 (542)",
+        "stock": "In Stock"
+      },
+      "details": {
+        "full_name": "Test User",
+        "email": "test.user@example.com",
+        "phone": "9876543210"
+      },
+      "submitted": true,
+      "timestamp": "2026-07-19T07:20:10.135076+00:00",
+      "error": null
+    },
+    {
+      "product": {
+        "title": "Sony WH-1000XM6",
+        "brand": "Sony",
+        "category": "ELECTRONICS",
+        "price": "₹32,999",
+        "rating": "⭐ 4.9 (923)",
+        "stock": "In Stock"
+      },
+      "details": {
+        "full_name": "Test User",
+        "email": "test.user@example.com",
+        "phone": "9876543210"
+      },
+      "submitted": true,
+      "timestamp": "2026-07-19T07:20:13.003351+00:00",
+      "error": null
+    },
+    {
+      "product": {
+        "title": "Keychron K2 V2",
+        "brand": "Keychron",
+        "category": "OFFICE",
+        "price": "₹7,499",
+        "rating": "⭐ 4.8 (731)",
+        "stock": "In Stock"
+      },
+      "details": {
+        "full_name": "Test User",
+        "email": "test.user@example.com",
+        "phone": "9876543210"
+      },
+      "submitted": true,
+      "timestamp": "2026-07-19T07:20:15.867758+00:00",
+      "error": null
+    }
+  ]
+}
