@@ -1,54 +1,65 @@
-"""Configuration for the ShopSphere Playwright automation.
-
-Settings come from the project-root .env file, overridden by any real
-environment variables already set in the shell.
-"""
+"""Configuration for the ShopSphere Playwright automation."""
 
 import os
 from pathlib import Path
 
 from dotenv import load_dotenv
 
-# .env lives at the project root, one level above backend/.
 load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
-BASE_URL = os.getenv("SHOP_BASE_URL", "https://react-test-shop-five.vercel.app")
-HOME_URL = f"{BASE_URL}/home"
 
-# The demo site accepts any well-formed credentials.
-LOGIN_EMAIL = os.getenv("SHOP_EMAIL", "test@example.com")
-LOGIN_PASSWORD = os.getenv("SHOP_PASSWORD", "Password123")
+def required_env(name: str) -> str:
+    value = os.getenv(name)
 
-# Products to enquire about, matched on the card title (exact text).
+    if not value:
+        raise RuntimeError(
+            f"Required environment variable '{name}' is not set."
+        )
+
+    return value
+
+
+BASE_URL = required_env("SHOP_BASE_URL")
+HOME_URL = f"{BASE_URL.rstrip('/')}/home"
+
+LOGIN_EMAIL = required_env("SHOP_EMAIL")
+LOGIN_PASSWORD = required_env("SHOP_PASSWORD")
+
 TARGET_PRODUCTS = [
     "MacBook Air M4",
     "Sony WH-1000XM6",
     "Keychron K2 V2",
 ]
 
-# Details typed into the "View Details" enquiry modal.
 ENQUIRY_DETAILS = {
-    "full_name": "Test User",
-    "email": "test.user@example.com",
-    "phone": "9876543210",  # site caps this input at 10 characters
+    "full_name": required_env("SHOP_ENQUIRY_NAME"),
+    "email": required_env("SHOP_ENQUIRY_EMAIL"),
+    "phone": required_env("SHOP_ENQUIRY_PHONE"),
 }
 
-OUTPUT_FILE = os.getenv("SHOP_OUTPUT", "enquiries.json")
+OUTPUT_FILE = os.getenv(
+    "SHOP_OUTPUT",
+    "enquiries.json",
+)
 
-# Postgres connection. DB_HOST is the machine running the database, which may
-# not be this one.
 DB = {
-    "host": os.getenv("DB_HOST", "localhost"),
-    "port": int(os.getenv("DB_PORT", "5432")),
-    "dbname": os.getenv("DB_NAME", "scrapper_db"),
-    "user": os.getenv("DB_USER", "postgres"),
-    "password": os.getenv("DB_PASSWORD", ""),
-    "sslmode": os.getenv("DB_SSLMODE", "prefer"),
+    "host": required_env("DB_HOST"),
+    "port": int(required_env("DB_PORT")),
+    "dbname": required_env("DB_NAME"),
+    "user": required_env("DB_USER"),
+    "password": required_env("DB_PASSWORD"),
+    "sslmode": required_env("DB_SSLMODE"),
 }
 
-HEADLESS = os.getenv("SHOP_HEADLESS", "true").lower() != "false"
+HEADLESS = (
+    os.getenv("SHOP_HEADLESS", "true").lower()
+    != "false"
+)
 
-# Milliseconds Playwright pauses between actions, so a visible run is followable.
-SLOW_MO_MS = int(os.getenv("SHOP_SLOWMO", "0"))
+SLOW_MO_MS = int(
+    os.getenv("SHOP_SLOWMO", "0")
+)
 
-TIMEOUT_MS = 30_000
+TIMEOUT_MS = int(
+    os.getenv("SHOP_TIMEOUT_MS", "30000")
+)
