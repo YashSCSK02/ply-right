@@ -1,6 +1,6 @@
 {
   "source": "https://react-test-shop-five.vercel.app/home",
-  "generated_at": "2026-07-19T09:33:24.032665+00:00",
+  "generated_at": "2026-07-21T02:40:00.390053+00:00",
   "total": 3,
   "submitted": 3,
   "enquiries": [
@@ -19,7 +19,7 @@
         "phone": "9876543210"
       },
       "submitted": true,
-      "timestamp": "2026-07-19T09:33:16.026674+00:00",
+      "timestamp": "2026-07-21T02:39:53.562176+00:00",
       "error": null
     },
     {
@@ -37,7 +37,7 @@
         "phone": "9876543210"
       },
       "submitted": true,
-      "timestamp": "2026-07-19T09:33:18.850241+00:00",
+      "timestamp": "2026-07-21T02:39:56.412414+00:00",
       "error": null
     },
     {
@@ -55,7 +55,7 @@
         "phone": "9876543210"
       },
       "submitted": true,
-      "timestamp": "2026-07-19T09:33:21.734000+00:00",
+      "timestamp": "2026-07-21T02:39:59.244914+00:00",
       "error": null
     }
   ]
